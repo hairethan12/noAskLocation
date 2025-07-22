@@ -30,7 +30,8 @@ def home():
         "---------------------------\n"
     )
 
-    print(log_entry)
+    print(log_entry, flush=True)
+
 
     return render_template("index.html")
 
