@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     # Get the visitor's IP address
-    ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    raw_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    ip = raw_ip.split(',')[0].strip()
     user_agent = request.headers.get('User-Agent')
 
     try:
